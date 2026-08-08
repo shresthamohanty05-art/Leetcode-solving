@@ -14,6 +14,7 @@ public static  List<List<Integer>> combinationSum(int[] candidates, int target) 
 
    if (sum == target){
     ans.add(new ArrayList<>(current));
+    return;
    }
 
    if(sum>target){
