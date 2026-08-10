@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Q40 {
@@ -9,15 +10,12 @@ public class Q40 {
     static List<List<Integer>> ans = new ArrayList<>();
 
      public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        ans.clear();
+        Arrays.sort(candidates);
         helper(0, 0, candidates, target, new ArrayList<>());
         return ans ;
     }
 
     public void helper(int index, int sum, int[] candidates, int target, ArrayList<Integer> current){
-        if(index == candidates.length){
-            return ;
-        }
 
         if(sum>target){
             return;
@@ -28,13 +26,17 @@ public class Q40 {
             return;
         }
 
-        current.add(candidates[index]);
+for(int i = index ; i<candidates.length ; i++){
 
-        helper(index+1, sum+candidates[index], candidates, target, current);
 
-        current.remove(current.size()-1);
+    if(i>index && candidates[i] == candidates[i-1]){
+        continue;
+    }
 
-        helper(index+1, sum, candidates, target, current);
+    current.add(candidates[i]);
+    helper(i+1, sum + candidates[i], candidates, target, current);
+    current.remove(current.size()-1);
+}
 
 
     }
