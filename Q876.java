@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Q876 {
 
   public class ListNode {
@@ -8,16 +11,17 @@ public class Q876 {
      ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  }
 
-    public ListNode middleNode(ListNode head) {
-           ListNode s = head;
-        ListNode f = head ; 
+    public ListNode middleNode(ListNode Optional.ofNullable(head) {
+               ListNode s = head;
+            ListNode f = head ; 
+    
+            while(f != null && f.next != null){
+                s= s.next ;
+                f= f.next.next ; 
+            }
+            return s ;
+        } 
 
-        while(f != null && f.next != null){
-            s= s.next ;
-            f= f.next.next ; 
-        }
-        return s ;
-    } 
-
+    
 
 }
